@@ -1,79 +1,41 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/DtxdB3_i)
-## 🧠 Task Overview
+# EfficientNet Transfer Learning – Food Classification
 
-You will apply **Transfer Learning** using **EfficientNet** models with two approaches:  
-1. **Feature Extraction**  
-2. **Fine-tuning**
+## Overview
+This project applies transfer learning using EfficientNetB0 on the Food-11 dataset. Two approaches were implemented: feature extraction and fine-tuning.
 
-⚠️ This task **must be completed in Google Colab or a cloud-based environment**. Training deep models like EfficientNet on local machines without GPU/TPU is highly inefficient and may lead to failed or incomplete experiments.
+## Experiments
 
+### 1. Feature Extraction
+- Base model frozen
+- Only classification head trained
+- Fast and stable training
 
+### 2. Fine-tuning
+- Last layers unfrozen
+- Lower learning rate used
+- Improved performance over feature extraction
 
-## 📁 Dataset
+## Results
 
-Dataset is already downloaded and loaded in the notebook. Preprocess as needed for training.
+| Experiment | Test Accuracy | Test Loss |
+|-----------|-------------|----------|
+| Feature Extraction | 0.8883 | 0.3227 |
+| Fine-tuning | 0.9057 | 0.2863 |
 
+## Observations
 
+- Fine-tuning improved accuracy and reduced loss
+- Pretrained EfficientNet features generalize well
+- No strong overfitting observed
+- Some classes remain harder to distinguish
 
-## 🧪 Experiments
+## Conclusion
 
-### 1️⃣ Feature Extraction  
-- freeze all base layers  
-- train only the classification head  
+Fine-tuning provides better performance than feature extraction, though both approaches are effective. EfficientNetB0 is well-suited for transfer learning tasks.
 
-### 2️⃣ Fine-tuning  
-- unfreeze last layers  
-- retrain full or partial base  
+## Files
 
-You can enhance fine-tuning with these techniques:
-
-- **Unfreeze only last *n* layers**  
-  gradually increase trainable layers instead of full base model
-
-- **Gradual unfreezing**  
-  unfreeze layers one block at a time across training epochs
-
-- **Layer-wise learning rate decay**  
-  assign smaller LR to earlier layers and higher LR to deeper layers
-
-For each:
-- document model version  
-- include training/validation metrics  
-- write your analysis
-
-
-
-## 🧬 Bonus (Optional)
-
-- use **DagsHub** to upload and manage dataset in a cloud bucket  
-- track all runs using **MLflow**:
-  - versioned experiments  
-  - parameters, metrics, artifacts  
-
-## 📝 README Must Include:
-
-- experiment summary  
-- plots for metrics  
-- observations on:
-  - feature extract vs fine-tune  
-  - generalization, convergence, overfitting 
-
-## 🔗 Helpful Links
-
-- 📚 EfficientNet models in Keras:  
-  https://keras.io/api/applications/efficientnet/
-
-- 🎓 Transfer Learning guide (Keras):  
-  https://keras.io/guides/transfer_learning/
-
-- 📦 MLflow for experiment tracking:  
-  https://www.mlflow.org/docs/latest/index.html
-
-- ☁️ DVC + DagsHub integration:  
-  https://dagshub.com/docs/integrations/dvc/
-
-- 🧑‍🍳 How to freeze/unfreeze layers in Keras:  
-  https://keras.io/getting_started/faq/#how-can-i-freeze-layers-in-a-model
-
-- 📈 Using callbacks in Keras (e.g. EarlyStopping, ReduceLROnPlateau):  
-  https://keras.io/api/callbacks/
+- Notebook: training and evaluation
+- Model: `efficientnet_food_model.keras`
+- Weights: `efficientnet.weights.h5`
+- Results: `results_summary.json`

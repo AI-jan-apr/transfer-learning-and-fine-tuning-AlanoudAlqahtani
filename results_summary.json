@@ -1,0 +1,18 @@
+{
+  "feature_extraction": {
+    "test_loss": 0.32268744707107544,
+    "test_accuracy": 0.8882882595062256,
+    "last_train_accuracy": 0.8891392350196838,
+    "last_val_accuracy": 0.9038461446762085,
+    "last_train_loss": 0.330364853143692,
+    "last_val_loss": 0.29940515756607056
+  },
+  "fine_tuning": {
+    "test_loss": 0.2863106429576874,
+    "test_accuracy": 0.9057056903839111,
+    "last_train_accuracy": 0.9192579388618469,
+    "last_val_accuracy": 0.9146634340286255,
+    "last_train_loss": 0.23954874277114868,
+    "last_val_loss": 0.2594374418258667
+  }
+}
